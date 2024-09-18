@@ -22,13 +22,12 @@ function PostForm({ post }) {
 
   const submit = async (data) => {
     if (post) {
-      const file = data.image[0] ? appwriteService.uploadFile(data.image[0]) : null
+      const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null
 
       if (file) {
         appwriteService.deleteFile(post.featuredImage);
       }
 
-      console.log(post.featuredImage);
 
 
       const dbPost = await appwriteService.updatePost(post.$id, {
@@ -120,7 +119,7 @@ function PostForm({ post }) {
               accept="image/png,image/jpg,image/jpeg,image/gif"
               {...register("image", { required: !post })}
             />
-            {post && post.featuredImage &&(
+            {post && (
               <div className="w-full mb-4">
                 <img src={appwriteService.getFilePreview(post.featuredImage)} alt={post.title}
                   className="rounded-lg"

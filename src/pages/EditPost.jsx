@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 
 function EditPost() {
 
-    const [post,setPost] = useState([])
+    const [post,setPost] = useState(null)
     const {slug} = useParams()
     const navigate = useNavigate()
 
@@ -19,9 +19,9 @@ function EditPost() {
         }else{
             navigate('/')
         }
-    },[slug])
+    },[slug,navigate])
 
-    console.log(post);
+
     
   return post ? (
     <div className="py-8">

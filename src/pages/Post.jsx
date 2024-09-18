@@ -33,7 +33,6 @@ const deletePost = () =>{
     })
 }
 
-console.log("herlklui");
 
 
 return post ? (
