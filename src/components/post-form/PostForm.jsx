@@ -16,7 +16,9 @@ function PostForm({ post }) {
   })
 
   const navigate = useNavigate()
-  const userData = useSelector(state => state.auth.userData)
+  const userData = useSelector(state => state.auth.userData);
+
+  console.log("fdgd",userData.$id);
 
 
 
@@ -43,11 +45,12 @@ function PostForm({ post }) {
       const file = await appwriteService.uploadFile(data.image[0]);
 
       if (file) {
+    
         const fileId = file.$id
         data.featuredImage = fileId
         const dbPost = await appwriteService.createPost({
           ...data,
-          userId: userData.$id,
+          userId: userData?.$id,
         })
 
 
