@@ -18,8 +18,10 @@ function PostForm({ post }) {
   const navigate = useNavigate()
   const userData = useSelector(state => state.auth.userData);
 
-  console.log("fdgd",userData.$id);
 
+  if (!userData) {
+    return <div>Loading user data...</div>;
+  }
 
 
   const submit = async (data) => {
