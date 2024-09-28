@@ -9,7 +9,7 @@
                 setPosts(posts.documents)
             }
         })
-    })
+    },[])
    return (
      <div className='w-full'>
        <Container>

@@ -19,9 +19,7 @@ function PostForm({ post }) {
   const userData = useSelector(state => state.auth.userData);
 
 
-  if (!userData) {
-    return <div>Loading user data...</div>;
-  }
+
 
 
   const submit = async (data) => {
